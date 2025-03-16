@@ -26,19 +26,26 @@ export class QuizComponent implements OnInit{
 
   ngOnInit(): void {
     if(quizz_questions){
-      this.finalizado = false
-      this.titulo = quizz_questions.title
-
-      this.questao = quizz_questions.questions
-      this.questaoSelecionada = this.questao[this.indexQuestao]
-
-      this.indexQuestao = 0
-      this.maximoQuestoes = this.questao.length
-
-      console.log(this.indexQuestao)
-      console.log(this.maximoQuestoes)
+      this.iniciar();
     }
 
+  }
+
+  iniciar(){
+    this.finalizado = false
+    this.titulo = quizz_questions.title
+
+    this.questao = quizz_questions.questions
+    this.indexQuestao = 0
+    this.maximoQuestoes = this.questao.length
+    this.questaoSelecionada = this.questao[this.indexQuestao]
+    
+    console.log(this.indexQuestao)
+    console.log(this.maximoQuestoes)
+  }
+
+  reiniciar(){
+    this.iniciar();
   }
 
   escolher(value:string){
